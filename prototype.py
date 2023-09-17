@@ -37,6 +37,7 @@
 # v3
 from transformers import pipeline
 from pydub import AudioSegment
+from googletrans import Translator
 import os
 from pytube import YouTube
 import subprocess
@@ -44,7 +45,7 @@ import sys
 
 # args = sys.argv
 # url = args[0]
-
+translator = Translator()
 url = "https://www.youtube.com/watch?v=iIrr5afHnlo"
 
 # Initialize the ASR pipeline
@@ -147,3 +148,9 @@ for i in range(len(os.listdir(output_dir))):
 
 # Print the full transcript
 print(full_transcript)
+
+translated = translator.translate(text=full_transcript, src="en", dest="ta")
+text1 = translated.text
+print(text1)
+with open('converted_text.txt', 'w', encoding="utf-8") as f:
+    f.write(text1)
