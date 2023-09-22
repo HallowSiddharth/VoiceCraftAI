@@ -111,13 +111,13 @@ translated = translator.translate(text=full_transcript, src="en", dest="te")
 telugu = translated.text
 
 
-tts_command = ["edge-tts", "--voice", "ta-IN-ValluvarNeural", "--text", f"{tamil}", "--write-media", "tamil.mp3", "--write-subtitles", "stamil.vtt"]
+tts_command = ["edge-tts", "--voice", "ta-IN-ValluvarNeural", f"--text", f"{tamil}", "--write-media", "tamil.mp3", "--write-subtitles", "stamil.srt"]
 subprocess.run(tts_command)
-tts_command = ["edge-tts", "--voice", "hi-IN-MadhurNeural", f"--text", f"{hindi}", "--write-media", "hindi.mp3", "--write-subtitles", "shindi.vtt"]
+tts_command = ["edge-tts", "--voice", "hi-IN-MadhurNeural", f"--text", f"{hindi}", "--write-media", "hindi.mp3", "--write-subtitles", "shindi.srt"]
 subprocess.run(tts_command)
-tts_command = ["edge-tts", "--voice", "te-IN-MohanNeural", f"--text", f"{telugu}", "--write-media", "telugu.mp3", "--write-subtitles", "stelugu.vtt"]
+tts_command = ["edge-tts", "--voice", "te-IN-MohanNeural", f"--text", f"{telugu}", "--write-media", "telugu.mp3", "--write-subtitles", "stelugu.srt"]
 subprocess.run(tts_command)
-tts_command = ["edge-tts", "--voice", "kn-IN-GaganNeural", f"--text", f"{kannada}", "--write-media", "kannada.mp3", "--write-subtitles", "skannada.vtt"]
+tts_command = ["edge-tts", "--voice", "kn-IN-GaganNeural", f"--text", f"{kannada}", "--write-media", "kannada.mp3", "--write-subtitles", "skannada.srt"]
 subprocess.run(tts_command)
 
 input_video = "demo.mp4"
@@ -131,7 +131,7 @@ ffmpeg_command = [
         "-i",
         input_audio,
         "-c:v", "copy",
-        #"-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\tamil.vtt',scale=1280:720",
+        "-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\tamil.srt',scale=1280:720",
         "-af", "atempo=1.1",
     "-c:v", "libx264",
     "-c:a", "aac",
@@ -151,7 +151,7 @@ ffmpeg_command = [
         "-i",
         input_audio,
         "-c:v", "copy",
-        #"-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\telugu.vtt',scale=1280:720",
+        "-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\telugu.srt',scale=1280:720",
         "-af", "atempo=1.1",
     "-c:v", "libx264",
     "-c:a", "aac",
@@ -171,7 +171,7 @@ ffmpeg_command = [
         "-i",
         input_audio,
         "-c:v", "copy",
-        #"-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\hindi.vtt',scale=1280:720",
+        "-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\hindi.srt',scale=1280:720",
         "-af", "atempo=1.1",
     "-c:v", "libx264",
     "-c:a", "aac",
@@ -191,7 +191,7 @@ ffmpeg_command = [
         "-i",
         input_audio,
         "-c:v", "copy",
-        #"-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\kannada.vtt',scale=1280:720",
+        "-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\kannada.srt',scale=1280:720",
         "-af", "atempo=1.1",
     "-c:v", "libx264",
     "-c:a", "aac",
