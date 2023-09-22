@@ -38,21 +38,23 @@
 from transformers import pipeline
 from pydub import AudioSegment
 import os
+from googletrans import Translator
 from pytube import YouTube
 import subprocess
+from tqdm import tqdm
 import sys
 
 # args = sys.argv
 # url = args[0]
 
-url = "https://www.youtube.com/watch?v=iIrr5afHnlo"
+url = "https://www.youtube.com/watch?v=oO2qQNLSDnM&ab_channel=CIPAMIndia"
 
 # Initialize the ASR pipeline
 whisper = pipeline("automatic-speech-recognition", model="openai/whisper-medium")
 
 # download the video and convert the audio
 
-directory = r"E:\current file edits new"
+directory = r"E:\\"
 video = YouTube(url)
 # myvideo = video.streams.get_highest_resolution()
 streams = video.streams.filter(res="1080p")
@@ -134,7 +136,7 @@ audio = AudioSegment.from_file(audio_file)
 full_transcript = ""
 
 # Split the audio into chunks and process each chunk
-for i, start_time in enumerate(range(0, len(audio), chunk_size_ms)):
+for i, start_time in enumerate(tqdm(range(0, len(audio), chunk_size_ms),desc="PROGRESSING : ")):
     chunk = audio[start_time : start_time + chunk_size_ms]
     chunk_path = os.path.join(output_dir, f"chunk_{i}.wav")
     chunk.export(chunk_path, format="wav")
@@ -147,3 +149,24 @@ for i in range(len(os.listdir(output_dir))):
 
 # Print the full transcript
 print(full_transcript)
+
+translator = Translator()
+translated = translator.translate(text=full_transcript, src="en", dest="ta")
+text1 = translated.text
+with open('tamil.txt', 'w', encoding="utf-8") as f:
+    f.write(text1)
+
+translated = translator.translate(text=full_transcript, src="en", dest="kn")
+text1 = translated.text
+with open('kannada.txt', 'w', encoding="utf-8") as f:
+    f.write(text1)
+
+translated = translator.translate(text=full_transcript, src="en", dest="hi")
+text1 = translated.text
+with open('hindi.txt', 'w', encoding="utf-8") as f:
+    f.write(text1)
+
+translated = translator.translate(text=full_transcript, src="en", dest="te")
+text1 = translated.text
+with open('telugu.txt', 'w', encoding="utf-8") as f:
+    f.write(text1)
