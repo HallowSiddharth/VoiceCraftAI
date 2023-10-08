@@ -41,6 +41,7 @@ import os
 from googletrans import Translator
 from pytube import YouTube
 import subprocess
+from vtt_to_srt.vtt_to_srt import ConvertFile
 from tqdm import tqdm
 import sys
 
@@ -54,73 +55,19 @@ whisper = pipeline("automatic-speech-recognition", model="openai/whisper-medium"
 
 # download the video and convert the audio
 
-directory = r"E:\\"
-video = YouTube(url)
-# myvideo = video.streams.get_highest_resolution()
-streams = video.streams.filter(res="1080p")
-selected_stream = streams.first()
-if selected_stream != None:
-    myvideo = video.streams.filter(res="1080p")
-    audio = video.streams.get_audio_only()
-    # downloading and renaming the audio
-    name = audio.default_filename
-    temp = "temp.mp3"
-    audio.download(output_path=directory)
-    ffmpegcommand = [
-        "ffmpeg",
-        "-y",
-        "-i",
-        directory + "\\" + name,
-        directory + "\\" + temp,
-    ]
-    subprocess.run(ffmpegcommand)
-    selected_stream = myvideo.first()
-    selected_stream.download(output_path=directory)
-    input_video = directory + "\\" + name
-    output_video = directory + "\\" + "temp2.mp4"
-    input_audio = directory + "\\" + temp
-    ffmpeg_command = [
-        "ffmpeg",
-        "-y",  # Add the -y flag here to force overwrite
-        "-i",
-        input_video,
-        "-i",
-        input_audio,
-        "-c:v",
-        "copy",
-        "-c:a",
-        "aac",
-        "-strict",
-        "experimental",
-        "-map",
-        "0:v:0",
-        "-map",
-        "1:a:0",
-        "-shortest",
-        output_video,
-    ]
-    subprocess.run(ffmpeg_command)
+directory = r"E:\ha"
 
-    # cleaning up all the temp files
-    os.remove(input_video)
-
-    # renaming our output file to original video name
-    os.rename(output_video, input_video)
-
-
-else:
-    myvideo = video.streams.get_highest_resolution()
-    myvideo.download(output_path=directory)
-    audio = video.streams.get_audio_only()
-    name = audio.default_filename
-    temp = "temp.mp3"
-    audio.download(output_path=directory)
-    os.rename(directory + "\\" + name, directory + "\\" + temp)
-    input_audio = directory + "\\" + temp
-
+ffmpeg_command = [
+    "ffmpeg",
+    "-y",  # Add the -y flag here to force overwrite
+    "-i",
+    "demo.mp4",
+    "english.mp3"
+]
+subprocess.run(ffmpeg_command)
 
 # Define the audio file path
-audio_file = input_audio
+audio_file = "english.mp3"
 
 # Set the chunk size (in milliseconds)
 chunk_size_ms = 30000  # 30 seconds
@@ -150,23 +97,198 @@ for i in range(len(os.listdir(output_dir))):
 # Print the full transcript
 print(full_transcript)
 
+voice_names = {
+    'tamil': 'ta-IN-ValluvarNeural',
+    'kannada': 'kn-IN-GaganNeural',
+    'telugu': 'te-IN-MohanNeural',
+    'hindi': 'hi-IN-MadhurNeural'
+}
+
+languages = list(voice_names.keys())  # Get the list of languages from the keys of the dictionary
+full_transcript = 'In a world filled with diversity, we strive for unity, embracing the beauty of our differences.'
+
 translator = Translator()
-translated = translator.translate(text=full_transcript, src="en", dest="ta")
-text1 = translated.text
-with open('tamil.txt', 'w', encoding="utf-8") as f:
-    f.write(text1)
 
-translated = translator.translate(text=full_transcript, src="en", dest="kn")
-text1 = translated.text
-with open('kannada.txt', 'w', encoding="utf-8") as f:
-    f.write(text1)
+for lang in languages:
+    translated = translator.translate(text=full_transcript, src="en", dest=lang)
+    translated_text = translated.text
+    with open(f'{lang}.txt', 'w+', encoding='utf-8') as f:
+        f.write(translated_text)
+    
+    tts_command = ["edge-tts", "--voice", f"{voice_names[lang]}", "--text", f"{translated_text}", "--write-media", f"{lang}.mp3", "--write-subtitles", f"s{lang}.vtt"]
+    subprocess.run(tts_command)
 
-translated = translator.translate(text=full_transcript, src="en", dest="hi")
-text1 = translated.text
-with open('hindi.txt', 'w', encoding="utf-8") as f:
-    f.write(text1)
+    input_video = "demo.mp4"
+    base_path = r"E:\ha"
+    # output_video = r"E:\ha\tamil_f.mp4"
+    input_audio = f"{lang}.mp3"
+    output_video = f"{base_path}/{lang}_f.mp4"
+    ffmpeg_command = [
+            "ffmpeg",
+            "-y",  # Add the -y flag here to force overwrite
+            "-i",
+            input_video,
+            "-i",
+            input_audio,
+            "-c:v", "copy",
+            # "-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\tamil.srt',scale=1280:720",
+            "-af", "atempo=1.1",
+        "-c:v", "libx264",
+        "-c:a", "aac",
+        "-strict", "experimental",
+        "-map", "0:v",  # Map the video stream from input_video
+        "-map", "1:a",
+            output_video,
+        ]
+    subprocess.run(ffmpeg_command)
+    with open(f'{lang}.txt', 'r', encoding='utf-8') as f , open(f'{lang}.srt', 'w+', encoding='utf-8') as f1:
+        a = f.read()
+        b = a.split()
+        w = 0
+        q = '00:00:00,100 --> 00:00:03,737'
+        set = 1
+        s = ''
+        for i in b:
+            s += i + ' '
+            w += 1
+            if lang != 'hindi':
+                if w == 4:
+                    f1.write(str(set) + '\n' + q + '\n' +s + '\n')
+                    set += 1
+                    s = ''
+                    w = 0
+                    t = list(q)
+                    t[7] = str(int(t[7]) + 3)
+                    t[24] = str(int(t[24]) + 3)
+                    q = "".join(t)
+            else:
+                if w == 12:
+                    f1.write(str(set) + '\n' + q + '\n' +s + '\n')
+                    set += 1
+                    s = ''
+                    w = 0
+                    t = list(q)
+                    t[7] = str(int(t[7]) + 3)
+                    t[24] = str(int(t[24]) + 3)
+                    q = "".join(t)
+        if s:
+            f1.write(s)
+    ffmpeg_command1 = ["ffmpeg", "-i", f"{lang}_f.mp4", "-vf", f"subtitles={lang}.srt:force_style='FontName=Arial,FontSize=13'", "-c:a", "copy", f"output_{lang}.mp4"]
+    subprocess.run(ffmpeg_command1)
 
-translated = translator.translate(text=full_transcript, src="en", dest="te")
-text1 = translated.text
-with open('telugu.txt', 'w', encoding="utf-8") as f:
-    f.write(text1)
+# translator = Translator()
+# translated = translator.translate(text=full_transcript, src="en", dest="ta")
+# tamil = translated.text
+
+# translated = translator.translate(text=full_transcript, src="en", dest="kn")
+# kannada = translated.text
+
+# translated = translator.translate(text=full_transcript, src="en", dest="hi")
+# hindi = translated.text
+
+# translated = translator.translate(text=full_transcript, src="en", dest="te")
+# telugu = translated.text
+
+
+# tts_command = ["edge-tts", "--voice", "ta-IN-ValluvarNeural", "--text", f"{tamil}", "--write-media", "tamil.mp3", "--write-subtitles", "stamil.vtt"]
+# subprocess.run(tts_command)
+# tts_command = ["edge-tts", "--voice", "hi-IN-MadhurNeural", f"--text", f"{hindi}", "--write-media", "hindi.mp3", "--write-subtitles", "shindi.vtt"]
+# subprocess.run(tts_command)
+# tts_command = ["edge-tts", "--voice", "te-IN-MohanNeural", f"--text", f"{telugu}", "--write-media", "telugu.mp3", "--write-subtitles", "stelugu.vtt"]
+# subprocess.run(tts_command)
+# tts_command = ["edge-tts", "--voice", "kn-IN-GaganNeural", f"--text", f"{kannada}", "--write-media", "kannada.mp3", "--write-subtitles", "skannada.vtt"]
+# subprocess.run(tts_command)
+
+# input_video = "demo.mp4"
+# output_video = r"E:\ha\tamil_f.mp4"
+# input_audio = "tamil.mp3"
+# ffmpeg_command = [
+#         "ffmpeg",
+#         "-y",  # Add the -y flag here to force overwrite
+#         "-i",
+#         input_video,
+#         "-i",
+#         input_audio,
+#         "-c:v", "copy",
+#         # "-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\tamil.srt',scale=1280:720",
+#         "-af", "atempo=1.1",
+#     "-c:v", "libx264",
+#     "-c:a", "aac",
+#     "-strict", "experimental",
+#     "-map", "0:v",  # Map the video stream from input_video
+#     "-map", "1:a",
+#         output_video,
+#     ]
+# subprocess.run(ffmpeg_command)
+# output_video = r"E:\ha\telugu_f.mp4"
+# input_audio = "telugu.mp3"
+# ffmpeg_command = [
+#         "ffmpeg",
+#         "-y",  # Add the -y flag here to force overwrite
+#         "-i",
+#         input_video,
+#         "-i",
+#         input_audio,
+#         "-c:v", "copy",
+#         # "-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\telugu.srt',scale=1280:720",
+#         "-af", "atempo=1.1",
+#     "-c:v", "libx264",
+#     "-c:a", "aac",
+#     "-strict", "experimental",
+#     "-map", "0:v",  # Map the video stream from input_video
+#     "-map", "1:a",
+#         output_video,
+#     ]
+# subprocess.run(ffmpeg_command)
+# output_video = r"E:\ha\hindi_f.mp4"
+# input_audio = "hindi.mp3"
+# ffmpeg_command = [
+#         "ffmpeg",
+#         "-y",  # Add the -y flag here to force overwrite
+#         "-i",
+#         input_video,
+#         "-i",
+#         input_audio,
+#         "-c:v", "copy",
+#         # "-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\hindi.srt',scale=1280:720",
+#         "-af", "atempo=1.1",
+#     "-c:v", "libx264",
+#     "-c:a", "aac",
+#     "-strict", "experimental",
+#     "-map", "0:v",  # Map the video stream from input_video
+#     "-map", "1:a",
+#         output_video,
+#     ]
+# subprocess.run(ffmpeg_command)
+# output_video = r"E:\ha\kannada_f.mp4"
+# input_audio = "kannada.mp3"
+# ffmpeg_command = [
+#         "ffmpeg",
+#         "-y",  # Add the -y flag here to force overwrite
+#         "-i",
+#         input_video,
+#         "-i",
+#         input_audio,
+#         "-c:v", "copy",
+#         # "-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\kannada.srt',scale=1280:720",
+#         "-af", "atempo=1.1",
+#     "-c:v", "libx264",
+#     "-c:a", "aac",
+#     "-strict", "experimental",
+#     "-map", "0:v",  # Map the video stream from input_video
+#     "-map", "1:a",
+#         output_video,
+#     ]
+# subprocess.run(ffmpeg_command)
+
+# convert_file = ConvertFile("shindi.vtt", "utf-8")
+# convert_file.convert()
+
+# ffmpeg_command1 = ["ffmpeg", "-i", "hindi_f.mp4", "-vf", "subtitles=shindi.srt::force_style='FontName=Arial,FontSize=13'", "-c:a", "copy", "output_hindi.mp4"]
+# subprocess.run(ffmpeg_command1)
+# ffmpeg_command2 = ["ffmpeg", "-i", "kannada_f.mp4", "-vf", "subtitles=skannada.srt:force_style='FontName=Arial,FontSize=13'", "-c:a", "copy", "output_kannada_su.mp4"]
+# subprocess.run(ffmpeg_command2)
+# ffmpeg_command2 = ["ffmpeg", "-i", "tamil_f.mp4", "-vf", "subtitles=stamil.srt:force_style='FontName=Arial,FontSize=13'", "-c:a", "copy", "output_tamil_su.mp4"]
+# subprocess.run(ffmpeg_command2)
+# ffmpeg_command2 = ["ffmpeg", "-i", "telugu_f.mp4", "-vf", "subtitles=stelugu.srt::force_style='FontName=Arial,FontSize=13'", "-c:a", "copy", "output_telugu.mp4"]
+# subprocess.run(ffmpeg_command2)
