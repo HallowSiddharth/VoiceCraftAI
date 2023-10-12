@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Poppins:wght@300;400;500;600&display=swap');
+/* COMMON */
+
+* {
+    margin: 0;
+    padding: 0;    
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+p{
+    color: rgb(85, 85, 85);
+}
+
+/* TRANSITON */
+
+a, .btn{
+    transition: all 300ms ease;
+}
+
+/* NAVIGATION */
+
+nav, .nav-links{
+    display: flex;
+}
+
+nav{
+    justify-content: space-around;
+    align-items: center;
+    height: 17vh;
+}
+
+.nav-links{
+    gap: 4rem;
+    list-style: none;
+    font-size: 1.5rem;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+    text-decoration-color: white;
+}
+
+a:hover{
+    color: grey;
+    text-decoration: underline;
+    text-underline-offset: 0.75rem;
+    transition: all 0.75s ease;
+    text-decoration-color: rgb(181,181,181) ;
+}
+
+.logo{
+    font-size: 2rem;
+}
+
+.logo:hover{
+    cursor: pointer;
+}
+
+/* HAM */
+
+#ham{
+    display: none;
+}
+
+.ham-menu{
+    position: relative;
+    display: inline-block;
+}
+
+.ham-icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.ham-icon span {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transition: all 0.3 ease-in-out;
+}
+
+.menu-links{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    width: fit-content;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3 ease-in-out;
+}
+
+.menu-links a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+    transition: all 0.3 ease-in-out;
+}
+
+.menu-links li{
+    list-style: none;
+}
+
+.menu-links.open {
+    max-height: 300px;
+}
+
+.ham-icon.open span:first-child{
+    transform: rotate(45deg) translate(10px,5px);
+}
+
+.ham-icon.open span:nth-child(2){
+    opacity: 0;
+}
+
+.ham-icon.open span:last-child{
+    transform: rotate(-45deg) translate(10px,-5px);
+}
+
+.ham-icon span:first-child{
+    transform: none;
+}
+.ham-icon span:first-child{
+    opacity:1 ;
+}
+.ham-icon span:first-child{
+    transform: none;
+}
+
+.icons{
+    display: flex;
+    gap: 20px;
+}
+
+.profile{
+    display: flex;
+}
+
+.im{
+    height: 200px;
+    width: 200px;
+}
+
+.intro {
+    text-align: center;
+    margin-top: 9%;
+}
+
+.intro h1 {
+    font-size: 40px;
+} 
+
+.intro h3 {
+    margin-top: 45px;
+}
+
+.clonebutton {
+    margin-top: 45px;
+    background-color: #30A2FF;
+    color: white;
+    border: none;
+    height: 65px;
+    width: 300px;
+    font-size: 14px;
+    border-radius: 35px;
+    font-weight: bolder;
+}
+
+.clonebutton:hover{
+    background-color: #3381ee;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.intro img {
+    margin-top: 45px;
+}
+
+.circle-number {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.steps{
+    width: 30%;
+    float: left;
+    margin-left: 15%;
+    margin-top: 5%;
+    line-height: 2;
+}
+
+.bold{
+    margin-left: 20px;
+}
+
+.para{
+    margin-left: 45px;
+}
+
+.imagek{
+    height: 460px;
+    width: 565px;
+    border-radius: 3%;
+    margin-top: 90px;
+    margin-left: 90px;
+}
+
+.video{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.realvideo{
+    margin-top: 50px;
+    border-radius: 5%;
+}
+
+.desc-container {
+    margin-top: 185px;
+    margin-left: 15%;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    gap: 2rem;
+}
+
+.desc-plan {
+    flex: 1;
+    max-width: 300px;
+    padding: 30px;
+    height: 500px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    text-align: left;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.plan-title{
+    font-weight: bolder;
+}
+
+.desc-plan p {
+    line-height: 1.8;
+}
