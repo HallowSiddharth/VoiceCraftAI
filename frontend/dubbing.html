@@ -20,23 +20,24 @@
             </ul>
         </div>
     </nav>
-    <div class="select-menu">
-        <div class="select-btn">
-            <span class="sBtn-text">Select your option</span>
-            <i class="bx bx-chevron-down"></i>
-        </div>
+    
+    <select class="minimal" id="option" onchange="showInputFields()">
+        <option value="none">Select an option</option>
+        <option value="video">Video<i class='bx bxs-video-plus' ></i></option>
+        <option value="youtube">YouTube Link<i class='bx bx-link-alt'></i></option>
+      </select>
 
-        <ul class="options">
-            <li class="option">
-                <i class='bx bx-link-alt' style="color: #171515;"></i>
-                <span class="option-text">YouTube URL</span>
-            </li>
-            <li class="option">
-                <i class='bx bxs-video-plus' style="color: #171515;"></i>
-                <span class="option-text">Video</span>
-            </li>
-        </ul>
+    <div class="videoInput" id="videoInput" style="display: none;">
+        <label for="video">Upload a video:</label>
+        <input type="file" id="video" accept="video/*">
     </div>
+
+    <div class="urlInput" id="urlInput" style="display: none;">
+        <label for="youtubeUrl">Enter YouTube URL:</label>
+        <input type="text" id="youtubeUrl">
+    </div>
+
+
     <script src="script.js"></script>
 </body>
 </html>

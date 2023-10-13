@@ -269,7 +269,7 @@ a:hover{
     line-height: 1.8;
 }
 
-/* .dropdown{
+.dropdown{
     margin-left: 230px;
     margin-top: 150px;
 }
@@ -277,7 +277,7 @@ a:hover{
 select {
 
     background-color: white;
-    border: thin solid blue;
+    border: thin solid rgb(0, 0, 0);
     border-radius: 4px;
     display: inline-block;
     font: inherit;
@@ -286,7 +286,8 @@ select {
   
 
   
-    margin: 0;      
+    margin-left: 230px;   
+    margin-top: 100px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -326,62 +327,12 @@ select.options:focus {
     background-repeat: no-repeat;
     border-color: green;
     outline: 0;
-  } */
+} 
 
-  .select-menu{
-    width: 300px;
-    margin-top: 140px;
-    margin-left: 220px;
+.videoInput{
+    margin-left: 500px;
 }
-.select-menu .select-btn{
-    display: flex;
-    height: 55px;
-    background: #fff;
-    padding: 20px;
-    font-size: 18px;
-    font-weight: 400;
-    border-radius: 8px;
-    align-items: center;
-    cursor: pointer;
-    justify-content: space-between;
-    box-shadow: 0 0 5px rgba(0,0,0,10);
-}
-.select-btn i{
-    font-size: 25px;
-    transition: 0.3s;
-}
-.select-menu.active .select-btn i{
-    transform: rotate(-180deg);
-}
-.select-menu .options{
-    position: relative;
-    padding: 20px;
-    margin-top: 10px;
-    border-radius: 8px;
-    background: #fff;
-    box-shadow: 0 0 3px rgba(0,0,0,10);
-    display: none;
-}
-.select-menu.active .options{
-    display: block;
-}
-.options .option{
-    display: flex;
-    height: 55px;
-    cursor: pointer;
-    padding: 0 16px;
-    border-radius: 8px;
-    align-items: center;
-    background: #fff;
-}
-.options .option:hover{
-    background: #F2F2F2;
-}
-.option i{
-    font-size: 25px;
-    margin-right: 12px;
-}
-.option .option-text{
-    font-size: 18px;
-    color: #333;
+
+.urlInput{
+    margin-left: 500px;
 }

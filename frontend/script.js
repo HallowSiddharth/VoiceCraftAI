@@ -6,7 +6,6 @@ function togglemenu() {
 }
 
 
-
 const optionMenu = document.querySelector(".select-menu"),
        selectBtn = optionMenu.querySelector(".select-btn"),
        options = optionMenu.querySelectorAll(".option"),
@@ -19,3 +18,20 @@ options.forEach(option =>{
         optionMenu.classList.remove("active");
     });
 });
+
+
+
+function showInputFields() {
+    var option = document.getElementById("option").value;
+    var videoInput = document.getElementById("videoInput");
+    var urlInput = document.getElementById("urlInput");
+
+    videoInput.style.display = "none";
+    urlInput.style.display = "none";
+
+    if (option === "video") {
+        videoInput.style.display = "block";
+    } else if (option === "youtube") {
+        urlInput.style.display = "block";
+    }
+}
