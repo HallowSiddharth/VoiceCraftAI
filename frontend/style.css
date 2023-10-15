@@ -274,65 +274,237 @@ a:hover{
     margin-top: 150px;
 }
 
-select {
+.select-menu{
+    width: 250px;
+    margin: 140px auto;
+    margin-left: 250px;
+    margin-top: 80px;
+    
+}
+.select-menu .select-btn{
+    display: flex;
+    height: 20px;
+    background: #fff;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    box-shadow: 0 0 13px rgba(0, 0, 0, 0.1);
+}
+.select-btn i{
+    font-size: 25px;
+    transition: 0.3s;
+}
+.select-menu.active .select-btn i{
+    transform: rotate(-180deg);
+}
+.select-menu .options{
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: none;
+}
+.select-menu.active .options{
+    display: block;
+}
+.options .option{
+    display: flex;
+    height: 55px;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+}
+.options .option:hover{
+    background: #F2F2F2;
+}
+.option i{
+    font-size: 25px;
+    margin-right: 12px;
+}
+.option .option-text{
+    font-size: 18px;
+    color: #333;
+}
 
-    background-color: white;
-    border: thin solid rgb(0, 0, 0);
-    border-radius: 4px;
-    display: inline-block;
-    font: inherit;
-    line-height: 1.5em;
-    padding: 0.5em 3.5em 0.5em 1em;
-  
 
-  
-    margin-left: 230px;   
+.videoInput {
+    position: absolute; /* Position the videoInput absolutely */
+    top: 480px; /* Adjust the top position as needed */
+    right: 0; /* Position it to the right side */
+    margin-right: 880px;
+}
+
+.urlInput {
+    position: absolute; /* Position the urlInput absolutely */
+    top: 480px; /* Adjust the top position as needed */
+    right: 0; /* Position it to the right side */
+    margin-right: 880px;
+}
+
+input[type=file]{
+    height: 40px;
+    width: 300px;
+}
+
+input[type=text]{
+    height: 40px;
+    width: 300px;
+    border-width: 1px;
+    font-size: larger;
+}
+
+.urlsubmit{
+    height: 44px;
+    width: 80px;
+    margin-left: 3px;
+    background-color: black;
+    color: white;
+    border-radius: 5px; 
+    font-weight: bolder;
+}
+
+.urlsubmit:hover{
+    cursor: pointer;
+}
+
+
+.videosubit{
+    height: 44px;
+    width: 80px;
+    margin-left: 3px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+.videosubit:hover{
+    cursor: pointer;
+}
+
+.textarea{
+    position: absolute;
+    top: 450px;
+    width: 450px;
+    margin-left: 250px;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+.othertextarea{
+    position: absolute;
+    top: 450px;
+    width: 450px;
+    margin-left: 800px;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+
+.lang-select-menu{
+    position: relative;
+    width: 250px;
+    margin: 140px auto;
+    margin-left: 800px;
+    margin-top: 80px;
+}
+.lang-select-menu .lang-select-btn{
+    display: flex;
+    height: 20px;
+    background: #fff;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    box-shadow: 0 0 13px rgba(0, 0, 0, 0.1);
+}
+.lang-select-btn i{
+    font-size: 25px;
+    transition: 0.3s;
+}
+.lang-select-menu.active .lang-select-btn i{
+    transform: rotate(-180deg);
+}
+.lang-select-menu .lang-options{
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    display: none;
+}
+.lang-select-menu.active .lang-options{
+    display: block;
+}
+.lang-options .lang-option{
+    display: flex;
+    height: 55px;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+}
+.lang-options .lang-option:hover{
+    background: #F2F2F2;
+}
+.lang-option i{
+    font-size: 25px;
+    margin-right: 12px;
+}
+.lang-option .lang-option-text{
+    font-size: 18px;
+    color: #333;
+}
+
+.dropdowncontainer{
+    position: relative;
+}
+
+.select-menu, .lang-select-menu {
+    width: 250px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.dubbing-button{
+    height: 44px;
+    width: 140px;
+    margin-top: 430px;
+    margin-left: 695px;
+    background-color: #30A2FF;
+    color: white;
+    border-radius: 10px; 
+    font-weight: bolder;
+    font-size: medium;   
+    border: none;
+}
+
+.dubbing-button:hover{
+    cursor: pointer;
+}
+
+.quote{
+    text-align: center;
     margin-top: 100px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
-
-select.options{
-    background-image:
-    linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%),
-    linear-gradient(to right, #ccc, #ccc);
-  background-position:
-    calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px),
-    calc(100% - 2.5em) 0.5em;
-  background-size:
-    5px 5px,
-    5px 5px,
-    1px 1.5em;
-  background-repeat: no-repeat;
-}
-
-select.options:focus {
-    background-image:
-      linear-gradient(45deg, green 50%, transparent 50%),
-      linear-gradient(135deg, transparent 50%, green 50%),
-      linear-gradient(to right, #ccc, #ccc);
-    background-position:
-      calc(100% - 15px) 1em,
-      calc(100% - 20px) 1em,
-      calc(100% - 2.5em) 0.5em;
-    background-size:
-      5px 5px,
-      5px 5px,
-      1px 1.5em;
-    background-repeat: no-repeat;
-    border-color: green;
-    outline: 0;
-} 
-
-.videoInput{
-    margin-left: 500px;
-}
-
-.urlInput{
-    margin-left: 500px;
 }

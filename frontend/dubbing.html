@@ -20,24 +20,97 @@
             </ul>
         </div>
     </nav>
-    
+<!--     
     <select class="minimal" id="option" onchange="showInputFields()">
         <option value="none">Select an option</option>
         <option value="video">Video<i class='bx bxs-video-plus' ></i></option>
         <option value="youtube">YouTube Link<i class='bx bx-link-alt'></i></option>
-      </select>
+      </select> -->
 
+      <h1 class="quote">"Bringing voices to life, one language at a time."</h1>
+
+      <div class="dropdowncontainer">
+        <div class="select-menu">
+            <div class="select-btn">
+                <span class="sBtn-text">Select your option</span>
+                <i class="bx bx-chevron-down"></i>
+            </div>
+            <ul class="options">
+                <li class="option">
+                    <span class="option-text">Select your option</span>
+                </li>
+                <li class="option">
+                    <i class="bx bxs-video-plus" style="color: #171515;"></i>
+                    <span class="option-text">Video</span>
+                </li>
+                <li class="option">
+                    <i class="bx bx-link-alt" style="color: #171515;"></i>
+                    <span class="option-text">Youtube URL</span>
+                </li>
+            </ul>
+        </div>
+    
+
+
+        <div class="lang-select-menu">
+            <div class="lang-select-btn">
+                <span class="lang-sBtn-text">Select your option</span>
+                <i class="bx bx-chevron-down"></i>
+            </div>
+            <ul class="lang-options">
+                <li class="lang-option">
+                    <span class="lang-option-text">Select your option</span>
+                </li>
+                <li class="lang-option">
+                    <span class="lang-option-text">Tamil</span>
+                </li>
+                <li class="lang-option">
+                    <span class="lang-option-text">Malayalam</span>
+                </li>
+                <li class="lang-option">
+                    <span class="lang-option-text">Telugu</span>
+                </li>
+                <li class="lang-option">
+                    <span class="lang-option-text">Kannada</span>
+                </li>
+                <li class="lang-option">
+                    <span class="lang-option-text">Hindi</span>
+                </li>
+                <li class="lang-option">
+                    <span class="lang-option-text">Bengali</span>
+                </li>
+                <li class="lang-option">
+                    <span class="lang-option-text">Gujarati</span>
+                </li>
+                <li class="lang-option">
+                    <span class="lang-option-text">Marathi</span>
+                </li>
+                <li class="lang-option">
+                    <span class="lang-option-text">Odia</span>
+                </li>
+            </ul>
+        </div>
+      </div>
+
+      
     <div class="videoInput" id="videoInput" style="display: none;">
-        <label for="video">Upload a video:</label>
-        <input type="file" id="video" accept="video/*">
+        <label for="video">Upload a video:</label><br>
+        <input class="fileupload" type="file" id="video" accept="video/*">
+        <input class="videosubit" type="submit" value="submit">
     </div>
 
     <div class="urlInput" id="urlInput" style="display: none;">
-        <label for="youtubeUrl">Enter YouTube URL:</label>
+        <label for="youtubeUrl">Enter YouTube URL:</label><br>
         <input type="text" id="youtubeUrl">
+        <input class="urlsubmit" type="submit" value="Submit">
     </div>
 
+    <textarea class="textarea" name="englishtext" id="eng" cols="30" rows="10">English Text :</textarea>
 
+    <textarea class="othertextarea" name="othertext" id="eng" cols="30" rows="10">Translated Text :</textarea>
+
+    <button class="dubbing-button" type="submit">Start dubbing</button>
+    
     <script src="script.js"></script>
 </body>
 </html>
