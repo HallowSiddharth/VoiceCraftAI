@@ -31,13 +31,15 @@ nav, .nav-links{
 }
 
 nav{
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-left: 70px;
+    margin-right: 70px;
     align-items: center;
-    height: 17vh;
+    height: 15vh;
 }
 
 .nav-links{
-    gap: 4rem;
+    gap: 3rem;
     list-style: none;
     font-size: 1.5rem;
 }
@@ -158,7 +160,7 @@ a:hover{
 
 .intro {
     text-align: center;
-    margin-top: 9%;
+    margin-top: 5%;
 }
 
 .intro h1 {
@@ -171,14 +173,15 @@ a:hover{
 
 .clonebutton {
     margin-top: 45px;
-    background-color: #30A2FF;
+    background-color: #0e77cd;
     color: white;
     border: none;
-    height: 65px;
-    width: 300px;
+    height: 45px;
+    width: 150px;
     font-size: 14px;
     border-radius: 35px;
     font-weight: bolder;
+    font-size: 15px;
 }
 
 .clonebutton:hover{
@@ -189,6 +192,7 @@ a:hover{
 
 .intro img {
     margin-top: 45px;
+    margin-right: 160px;
 }
 
 .circle-number {
@@ -277,7 +281,7 @@ a:hover{
 .select-menu{
     width: 250px;
     margin: 140px auto;
-    margin-left: 250px;
+    margin-left: 80px;
     margin-top: 80px;
     
 }
@@ -337,16 +341,16 @@ a:hover{
 
 .videoInput {
     position: absolute; /* Position the videoInput absolutely */
-    top: 480px; /* Adjust the top position as needed */
+    top: 490px; /* Adjust the top position as needed */
     right: 0; /* Position it to the right side */
-    margin-right: 880px;
+    margin-right: 1050px;
 }
 
 .urlInput {
     position: absolute; /* Position the urlInput absolutely */
-    top: 480px; /* Adjust the top position as needed */
+    top: 490px; /* Adjust the top position as needed */
     right: 0; /* Position it to the right side */
-    margin-right: 880px;
+    margin-right: 1050px;
 }
 
 input[type=file]{
@@ -392,24 +396,24 @@ input[type=text]{
 
 .textarea{
     position: absolute;
-    top: 450px;
+    top: 600px;
     width: 450px;
-    margin-left: 250px;
+    margin-left: 80px;
     height: 200px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 3px dashed #ccc;
     border-radius: 5px;
     resize: none;
 }
 
 .othertextarea{
     position: absolute;
-    top: 450px;
+    top: 600px;
     width: 450px;
-    margin-left: 800px;
+    margin-left: 990px;
     height: 200px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 3px dashed #ccc;
     border-radius: 5px;
     resize: none;
 }
@@ -419,7 +423,7 @@ input[type=text]{
     position: relative;
     width: 250px;
     margin: 140px auto;
-    margin-left: 800px;
+    margin-left: 1210px;
     margin-top: 80px;
 }
 .lang-select-menu .lang-select-btn{
@@ -490,9 +494,9 @@ input[type=text]{
 .dubbing-button{
     height: 44px;
     width: 140px;
-    margin-top: 430px;
+    margin-top: 50px;
     margin-left: 695px;
-    background-color: #30A2FF;
+    background-color: #0a5da2;
     color: white;
     border-radius: 10px; 
     font-weight: bolder;
@@ -506,5 +510,100 @@ input[type=text]{
 
 .quote{
     text-align: center;
-    margin-top: 100px;
+    margin-top: 50px;
+}
+
+.googledrivebutton{
+    background-color: #0e77cd;
+    text-align: center; 
+    color: white;
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    font-weight: bolder;
+    font-size: medium;
+    border: none;
+    margin-left: 670px;
+    margin-top: 20px;
+}
+
+.googledrivebutton:hover{
+    cursor: pointer;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    height: 60px;
+    display: flex;
+    margin-top: 195.9px;
+}
+
+.foot{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.mori{
+    margin-top: 20px;
+    margin-left: 1150px;
+}
+
+.rights{
+    font-size: 11px;
+    margin-top: 28px;
+    margin-left: 20px;
+}
+
+.draganddrop{
+    height: 400px;
+    width: 600px;
+    margin-left: 475px;
+    border: 3px dashed ;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.draganddrop p{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-container {
+    margin-top: 25px;
+    margin-left: 15%;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    gap: 2rem;
+}
+
+.profile {
+    flex: 1;
+    max-width: 300px;
+    padding: 30px;
+    height: 200px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    text-align: left;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.profile p{
+    text-align: center;
+    margin-top: 250px;
+}
+
+.icons{
+    display: flex;
+    gap: 5px;   
+}
+
+.dubimage{
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 290px;
 }
