@@ -556,7 +556,7 @@ footer{
 }
 
 .draganddrop{
-    height: 400px;
+    height: 370px;
     width: 600px;
     margin-left: 475px;
     border: 3px dashed ;
@@ -571,7 +571,7 @@ footer{
 
 .profile-container {
     margin-top: 25px;
-    margin-left: 15%;
+    margin-left: 14%;
     width: 75%;
     display: flex;
     justify-content: center;
@@ -606,4 +606,74 @@ footer{
     text-align: center;
     margin-left: 30px;
     margin-top: 290px;
+}
+
+.videoupload{
+    height: 100%;
+    width: 100%;
+}
+
+.draganddropvideo{
+    height: 300px;
+    width: 600px;
+    margin-left: 475px;
+    border: 3px dashed ;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.firstpara{
+    text-align: center;
+    margin-top: 55px;
+}
+
+.secondpara{
+    text-align: center;
+}
+
+.choose{
+    height: 44px;
+    width: 140px;
+    margin-top: 25px;
+    margin-left: 230px;
+    background-color: black;
+    color: white;
+    border-radius: 10px; 
+    font-weight: bolder;
+    font-size: medium;   
+    border: none;
+}
+
+.choose:hover{
+    cursor: pointer;
+}
+
+.container{
+    margin-left: 600px;
+}
+
+.circular-progress{
+    margin-top: 40px;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background: conic-gradient(black 3.6deg, #ededed 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circular-progress::before{
+    content: "";
+    position: absolute;
+    height: 210px;
+    width: 210px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.progress-value{
+    position: relative;
+    font-size: 30px;
+    font-weight: 900;
 }
