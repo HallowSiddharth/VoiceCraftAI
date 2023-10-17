@@ -8,10 +8,16 @@
 
 body{
     font-family: 'Poppins', sans-serif;
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 6.74rem;
+    box-sizing: inherit;
 }
 
 html{
     scroll-behavior: smooth;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 p{
@@ -523,8 +529,6 @@ input[type=text]{
     font-weight: bolder;
     font-size: medium;
     border: none;
-    margin-left: 670px;
-    margin-top: 20px;
 }
 
 .googledrivebutton:hover{
@@ -536,7 +540,10 @@ footer{
     color: white;
     height: 60px;
     display: flex;
-    margin-top: 195.9px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
 }
 
 .foot{
@@ -608,34 +615,9 @@ footer{
     margin-top: 290px;
 }
 
-.videoupload{
-    height: 100%;
-    width: 100%;
-}
-
-.draganddropvideo{
-    height: 300px;
-    width: 600px;
-    margin-left: 475px;
-    border: 3px dashed ;
-    border-radius: 20px;
-    margin-top: 30px;
-}
-
-.firstpara{
-    text-align: center;
-    margin-top: 55px;
-}
-
-.secondpara{
-    text-align: center;
-}
-
 .choose{
     height: 44px;
     width: 140px;
-    margin-top: 25px;
-    margin-left: 230px;
     background-color: black;
     color: white;
     border-radius: 10px; 
@@ -648,14 +630,10 @@ footer{
     cursor: pointer;
 }
 
-.container{
-    margin-left: 600px;
-}
-
 .circular-progress{
-    margin-top: 40px;
-    height: 250px;
-    width: 250px;
+    margin-top: 30px;
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
     background: conic-gradient(black 3.6deg, #ededed 0deg);
     display: flex;
@@ -666,8 +644,8 @@ footer{
 .circular-progress::before{
     content: "";
     position: absolute;
-    height: 210px;
-    width: 210px;
+    height: 160px;
+    width: 160px;
     border-radius: 50%;
     background-color: white;
 }
