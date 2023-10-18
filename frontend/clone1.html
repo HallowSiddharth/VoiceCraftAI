@@ -46,7 +46,7 @@
         </div>
         <h2 class="uploading" style="margin-top: 30px; margin-left: 60px;">Uploading...</h2>
     </div>
-    <h1 style="text-align: center; font-size: 20px; margin-top: 20px; font-weight: 900;">“Random Quote/ fact / voice joke to be repeated every 5 seconds”</h1>
+    <div class="text" style="text-align: center; font-size: 20px; margin-top: 20px; font-weight: 900;"></div>
     </div>
 
 <footer class="foottitle">
@@ -65,6 +65,20 @@
     let circularProgress = document.querySelector(".circular-progress"),
     progressValue = document.querySelector(".progress-value"),
     uploading = document.querySelector(".uploading");
+    const div = document.querySelector('.text');
+    const text = "“Random Quote/ fact / voice joke to be repeated every 5 seconds”";
+
+    function textTypingEffect(element, text, i = 0){
+        element.textContent += text[i];
+
+        if (i === text.length - 1){
+            return;
+        }
+
+        setTimeout(() => textTypingEffect(element, text, i + 1), 40);
+    };
+
+    textTypingEffect(div, text);
 
     let progressStartValue = 0,
         progressEndValue = 100,
