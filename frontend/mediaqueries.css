@@ -6,9 +6,4 @@
     #ham{
         display: flex;
     }
-    
-    .desc-container {
-        flex-direction: column;
-        height: 100%;
-      }
 }

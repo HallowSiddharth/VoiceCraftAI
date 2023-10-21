@@ -27,21 +27,9 @@
     </div>
 
     <script>
-        function showInputFields() {
-            var option = document.getElementById("option").value;
-            var videoInput = document.getElementById("videoInput");
-            var urlInput = document.getElementById("urlInput");
-
-            // Hide both input fields by default
-            videoInput.style.display = "none";
-            urlInput.style.display = "none";
-
-            if (option === "video") {
-                videoInput.style.display = "block";
-            } else if (option === "youtube") {
-                urlInput.style.display = "block";
-            }
-        }
+       
+    randomIndex = Math.floor(Math.random() * 100) + 1;
+    console.log(randomFacts[randomIndex]);
     </script>
 </body>
 </html>

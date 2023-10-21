@@ -576,10 +576,15 @@ footer{
     margin-top: 20px;
 }
 
+.team-heading{
+    font-size: 60px; 
+    text-align: center; 
+    margin-top: 20px;
+}
+
 .profile-container {
-    margin-top: 25px;
     margin-left: 14%;
-    width: 75%;
+    width: 75%;  
     display: flex;
     justify-content: center;
     align-items: center;
