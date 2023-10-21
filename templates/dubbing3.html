@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoiceCraft</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/8862169197.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="mediaqueries.css">
+</head>
+<body>
+    <nav id="desktop-nav">
+        <div class="logo"><a href="index.html">VoiceCraft.AI</a></div>
+        <div>
+            <ul class="nav-links">
+                <li><a href="clone.html">Clone</a></li>
+                <li><a href="dubbing.html">Start Dub</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <h1 style="font-size: 60px; font-weight: 900;">Your Video is Processing. Sit Tight!</h1>
+
+        <div class="container">
+            <div class="circular-progress">
+                <span class="progress-value">0%</span>
+                
+            </div>
+            <h2 class="uploading" style="margin-top: 30px; margin-left: 35px;">Uploading...</h2>
+        </div>
+        <div class="text" style="text-align: center; font-size: 20px; margin-top: 20px; font-weight: 900;"></div>
+        <!-- <h1 style="text-align: center; font-size: 20px; margin-top: 20px; font-weight: 900;">“Random Quote/ fact / voice joke to be repeated every 5 seconds”</h1> -->
+    </div>
+
+<footer class="foottitle">
+    <h3 class="foot">
+        VoiceCraft
+    </h3>
+    <h3 class="mori">
+        Mori Labs
+    </h3>
+    <h5 class="rights">
+        All rights recerved
+    </h5>
+  </footer>
+
+  <script>
+    let circularProgress = document.querySelector(".circular-progress"),
+    progressValue = document.querySelector(".progress-value"),
+    uploading = document.querySelector(".uploading");
+    const div = document.querySelector(".text");
+    const text = "“Random Quote/ fact / voice joke to be repeated every 5 seconds”";
+
+    function textTypingEffect(element, text, i = 0){
+        element.textContent += text[i];
+
+        if (i === text.length - 1)
+        {
+            return;
+        }
+        setTimeout(() => textTypingEffect(element, text, i + 1), 50);
+
+    }
+    textTypingEffect(div, text);
+
+    let progressStartValue = 0,
+        progressEndValue = 100,
+        speed = 100;
+
+    let progress = setInterval(() => {
+        progressStartValue++
+
+    progressValue.textContent = `${progressStartValue}%`
+    circularProgress.style.background = `conic-gradient(black ${progressStartValue * 3.6}deg, #ededed 0deg)`
+
+    if (progressStartValue == progressEndValue){
+
+        uploading.innerHTML = `Completed`;
+
+        clearInterval(progress);
+    }
+
+    console.log(progressStartValue);
+}, speed);
+  </script>
+</body>
+</html>

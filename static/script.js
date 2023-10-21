@@ -48,6 +48,7 @@ langSelectBtn.addEventListener("click", () => {
         lang_option.addEventListener("click"), () => {
             let seletedlang = lang_option.querySelector(".lang-option-text").innerText;
             lang_SBtn_text.innerText = seletedlang;
+
             langSelectMenu.classList.remove("active");
         }
     })
@@ -58,19 +59,5 @@ langOptions.addEventListener("click", (event) => {
         const selectedOption = event.target.textContent;
         langSelectBtn.querySelector(".lang-sBtn-text").textContent = selectedOption;
         langSelectMenu.classList.remove("active");
-
-        fetch('/update_language', {
-            method: 'POST',
-            body: JSON.stringify({ language: selectedOption }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-        .then(response => {
-            // Handle the response from your Flask app if needed
-        })
-        .catch(error => {
-        }
-    )};
-        
+    }
 });

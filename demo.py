@@ -1,233 +1,90 @@
-# from transformers import pipeline
-
-# whisper = pipeline("automatic-speech-recognition", model="openai/whisper-medium")
-# text = whisper(r"E:\code\hackathon\test.mp3")
-# print(text)
-# from transformers import pipeline
-
-# # Initialize the ASR pipeline
-# whisper = pipeline("automatic-speech-recognition", model="openai/whisper-medium")
-
-# # Define the audio file path
-# audio_file = r"E:\code\hackathon\test2.mp3"
-
-# # Initialize variables to store the results
-# full_transcript = ""
-
-# # Set the chunk size (in seconds)
-# chunk_size = 30
-
-# # Open the audio file
-# with open(audio_file, "rb") as f:
-#     # Read the audio file in chunks
-#     while True:
-#         chunk = f.read(
-#             chunk_size * 1000
-#         )  # Read a chunk of data (30 seconds in this case)
-#         if not chunk:
-#             break  # If the chunk is empty, we've reached the end of the file
-#         # Perform ASR on the chunk and append the result to the full transcript
-#         chunk_transcript = whisper(chunk)
-#         print(chunk_transcript["text"])
-#         full_transcript += chunk_transcript["text"]
-
-# # Print the full transcript
-# # print(full_transcript)
-
-# # v3
-# from transformers import pipeline
-# from pydub import AudioSegment
-# import os
-# from googletrans import Translator
-# from pytube import YouTube
-# import subprocess
-# from tqdm import tqdm
-# import sys
-
-# # args = sys.argv
-# # url = args[0]
-
-# url = "https://www.youtube.com/watch?v=oO2qQNLSDnM&ab_channel=CIPAMIndia"
-
-# # Initialize the ASR pipeline
-# whisper = pipeline("automatic-speech-recognition", model="openai/whisper-medium")
-
-# # download the video and convert the audio
-
-# directory = r"E:\GITHUB Repo\VoiceCraftAI"
-
-# ffmpeg_command = [
-#     "ffmpeg",
-#     "-y",  # Add the -y flag here to force overwrite
-#     "-i",
-#     "demo.mp4",
-#     "english.mp3"
-# ]
-# subprocess.run(ffmpeg_command)
-
-# # Define the audio file path
-# audio_file = "english.mp3"
-
-# # Set the chunk size (in milliseconds)
-# chunk_size_ms = 30000  # 30 seconds
-
-# # Create a directory to store the audio chunk files
-# output_dir = "audio_chunks"
-# os.makedirs(output_dir, exist_ok=True)
-
-# # Open the audio file
-# audio = AudioSegment.from_file(audio_file)
-
-# # Initialize variables to store the results
-# full_transcript = ""
-
-# # Split the audio into chunks and process each chunk
-# for i, start_time in enumerate(tqdm(range(0, len(audio), chunk_size_ms),desc="PROGRESSING : ")):
-#     chunk = audio[start_time : start_time + chunk_size_ms]
-#     chunk_path = os.path.join(output_dir, f"chunk_{i}.wav")
-#     chunk.export(chunk_path, format="wav")
-#     chunk_transcript = whisper(chunk_path)
-#     full_transcript += chunk_transcript["text"]
-
-# # Clean up: remove the temporary audio chunk files
-# for i in range(len(os.listdir(output_dir))):
-#     os.remove(os.path.join(output_dir, f"chunk_{i}.wav"))
-
-# # Print the full transcript
-# print(full_transcript)
-
-# translator = Translator()
-# translated = translator.translate(text=full_transcript, src="en", dest="ta")
-# tamil = translated.text
-
-# translated = translator.translate(text=full_transcript, src="en", dest="kn")
-# kannada = translated.text
-
-# translated = translator.translate(text=full_transcript, src="en", dest="hi")
-# hindi = translated.text
-
-
-# translated = translator.translate(text=full_transcript, src="en", dest="te")
-# telugu = translated.text
-
-
-# tts_command = ["edge-tts", "--voice", "ta-IN-ValluvarNeural", f"--text", f"{tamil}", "--write-media", "tamil.mp3", "--write-subtitles", "stamil.srt"]
-# subprocess.run(tts_command)
-# tts_command = ["edge-tts", "--voice", "hi-IN-MadhurNeural", f"--text", f"{hindi}", "--write-media", "hindi.mp3", "--write-subtitles", "shindi.srt"]
-# subprocess.run(tts_command)
-# tts_command = ["edge-tts", "--voice", "te-IN-MohanNeural", f"--text", f"{telugu}", "--write-media", "telugu.mp3", "--write-subtitles", "stelugu.srt"]
-# subprocess.run(tts_command)
-# tts_command = ["edge-tts", "--voice", "kn-IN-GaganNeural", f"--text", f"{kannada}", "--write-media", "kannada.mp3", "--write-subtitles", "skannada.srt"]
-# subprocess.run(tts_command)
-
-# input_video = "demo.mp4"
-# output_video = r"E:\GITHUB Repo\VoiceCraftAI\tamil_f.mp4"
-# input_audio = "tamil.mp3"
-# ffmpeg_command = [
-#         "ffmpeg",
-#         "-y",  # Add the -y flag here to force overwrite
-#         "-i",
-#         input_video,
-#         "-i",
-#         input_audio,
-#         "-c:v", "copy",
-#         "-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\tamil.srt',scale=1280:720",
-#         "-af", "atempo=1.1",
-#     "-c:v", "libx264",
-#     "-c:a", "aac",
-#     "-strict", "experimental",
-#     "-map", "0:v",  # Map the video stream from input_video
-#     "-map", "1:a",
-#         output_video,
-#     ]
-# subprocess.run(ffmpeg_command)
-# output_video = r"E:\GITHUB Repo\VoiceCraftAI\telugu_f.mp4"
-# input_audio = "telugu.mp3"
-# ffmpeg_command = [
-#         "ffmpeg",
-#         "-y",  # Add the -y flag here to force overwrite
-#         "-i",
-#         input_video,
-#         "-i",
-#         input_audio,
-#         "-c:v", "copy",
-#         "-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\telugu.srt',scale=1280:720",
-#         "-af", "atempo=1.1",
-#     "-c:v", "libx264",
-#     "-c:a", "aac",
-#     "-strict", "experimental",
-#     "-map", "0:v",  # Map the video stream from input_video
-#     "-map", "1:a",
-#         output_video,
-#     ]
-# subprocess.run(ffmpeg_command)
-# output_video = r"E:\GITHUB Repo\VoiceCraftAI\hindi_f.mp4"
-# input_audio = "hindi.mp3"
-# ffmpeg_command = [
-#         "ffmpeg",
-#         "-y",  # Add the -y flag here to force overwrite
-#         "-i",
-#         input_video,
-#         "-i",
-#         input_audio,
-#         "-c:v", "copy",
-#         "-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\hindi.srt',scale=1280:720",
-#         "-af", "atempo=1.1",
-#     "-c:v", "libx264",
-#     "-c:a", "aac",
-#     "-strict", "experimental",
-#     "-map", "0:v",  # Map the video stream from input_video
-#     "-map", "1:a",
-#         output_video,
-#     ]
-# subprocess.run(ffmpeg_command)
-# output_video = r"E:\GITHUB Repo\VoiceCraftAI\kannada_f.mp4"
-# input_audio = "kannada.mp3"
-# ffmpeg_command = [
-#         "ffmpeg",
-#         "-y",  # Add the -y flag here to force overwrite
-#         "-i",
-#         input_video,
-#         "-i",
-#         input_audio,
-#         "-c:v", "copy",
-#         "-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\kannada.srt',scale=1280:720",
-#         "-af", "atempo=1.1",
-#     "-c:v", "libx264",
-#     "-c:a", "aac",
-#     "-strict", "experimental",
-#     "-map", "0:v",  # Map the video stream from input_video
-#     "-map", "1:a",
-#         output_video,
-#     ]
-# subprocess.run(ffmpeg_command)
-
+from transformers import pipeline
+from pydub import AudioSegment
+import os
+from googletrans import Translator
+from pytube import YouTube
 import subprocess
-audio_directory = 'audio_files'
-lang = 'hindi'
-input_video = "demo.mp4"
-# # base_path = r"C:\Users\Vishwaa Arumugam\Desktop\Github Repositories\VoiceCraftAI\video_files"
-# # output_video = r"E:\ha\tamil_f.mp4"
-# input_audio = f"{audio_directory}\{lang}.mp3"
-# output_video = f"video_files\{lang}_f.mp4"
-# ffmpeg_command = [
-#         "ffmpeg",
-#         "-y",  # Add the -y flag here to force overwrite
-#         "-i",
-#         input_video,
-#         "-i",
-#         input_audio,
-#         "-c:v", "copy",
-#         # "-vf", r"subtitles='E:\GITHUB Repo\VoiceCraftAI\tamil.srt',scale=1280:720",
-#         "-af", "atempo=1.1",
-#     "-c:v", "libx264",
-#     "-c:a", "aac",
-#     "-strict", "experimental",
-#     "-map", "0:v",  # Map the video stream from input_video
-#     "-map", "1:a",
-#         output_video,
-#     ]
-# subprocess.run(ffmpeg_command)
+from vtt_to_srt.vtt_to_srt import ConvertFile
+from tqdm import tqdm
+from moviepy.editor import *
+import sys
 
-ffmpeg_command1 = ["ffmpeg", "-i", f"video_files/{lang}_f.mp4", "-vf", f"subtitles=srt_files/{lang}.srt:force_style='FontName=Arial,FontSize=13'", "-c:a", "copy", f"final\output_{lang}.mp4"]
-subprocess.run(ffmpeg_command1)
+text_directory = "text_files"
+if not os.path.exists(text_directory):
+    os.makedirs(text_directory)
+
+voice_names = {
+    'tamil': 'ta-IN-ValluvarNeural',
+    'kannada': 'kn-IN-GaganNeural',
+    'telugu': 'te-IN-MohanNeural',
+    'hindi': 'hi-IN-MadhurNeural'
+}
+
+languages = list(voice_names.keys()) 
+
+def transcribe(url):
+
+    whisper = pipeline("automatic-speech-recognition", model="openai/whisper-medium")
+
+    # directory = r"E:\ha"
+
+    yt = YouTube(url)
+    video = yt.streams.get_highest_resolution()
+    video.download()
+    video_title = yt.title
+    current_file_name = f"{video_title}.mp4"
+    new_file_name = "demo.mp4"
+
+    if os.path.exists(current_file_name):
+        os.rename(current_file_name, new_file_name)
+        print(f"File '{current_file_name}' has been renamed to '{new_file_name}'.")
+    else:
+        print(f"File '{current_file_name}' does not exist.")
+
+    ffmpeg_command = [
+        "ffmpeg",
+        "-y", 
+        "-i",
+        "demo.mp4",
+        "english.mp3"
+    ]
+    subprocess.run(ffmpeg_command)
+
+    audio_file = "english.mp3"
+
+    chunk_size_ms = 30000 
+
+    output_dir = "audio_chunks"
+    os.makedirs(output_dir, exist_ok=True)
+
+    audio = AudioSegment.from_file(audio_file)
+
+    full_transcript = ""
+
+    for i, start_time in enumerate(tqdm(range(0, len(audio), chunk_size_ms),desc="PROGRESSING : ")):
+        chunk = audio[start_time : start_time + chunk_size_ms]
+        chunk_path = os.path.join(output_dir, f"chunk_{i}.wav")
+        chunk.export(chunk_path, format="wav")
+        chunk_transcript = whisper(chunk_path)
+        full_transcript += chunk_transcript["text"]
+
+    for i in range(len(os.listdir(output_dir))):
+        os.remove(os.path.join(output_dir, f"chunk_{i}.wav"))
+
+    return full_transcript
+
+def translate(full_transcript):
+
+    translator = Translator()
+
+    for lang in languages:
+        translated = translator.translate(text=full_transcript, src="en", dest=lang)
+        translated_text = translated.text
+        with open(f'{text_directory}/{lang}.txt', 'w+', encoding='utf-8') as f:
+            f.write(translated_text)
+    
+    return 'True'
+
+url = "https://youtu.be/MeBt-1F9nZo?si=cak78p186KVbo8xg"
+
+yt = YouTube(url)

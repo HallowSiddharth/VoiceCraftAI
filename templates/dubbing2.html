@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VoiceCraft</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="static/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/8862169197.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="mediaqueries.css">
@@ -85,7 +85,6 @@
                     <span class="lang-option-text">Odia</span>
                 </li>
             </ul>
-            </form>
         </div>
       </div>
 
@@ -97,15 +96,17 @@
     </div>
 
     <div class="urlInput" id="urlInput" style="display: none;">
-        <label for="youtubeUrl">Enter YouTube URL:</label><br>
-        <input type="text" id="youtubeUrl">
-        <input class="urlsubmit" type="submit" value="Submit">
+        <form method="post" action="{{ url_for('dubbing2') }}">
+            <label id="youtubeUrl" name="youtubeUrl">Enter YouTube URL:</label><br>
+            <input type="text" id="youtubeUrl" name="youtubeUrl">
+            <input class="urlsubmit" type="submit" value="Submit">
+        </form>
     </div>
 
-    <textarea class="textarea" name="englishtext" id="eng" cols="30" rows="10">English Text :</textarea>
+    <textarea class="textarea" name="englishtext" id="eng" cols="30" rows="10">English Text : {{ content }}</textarea>
 
     <div class="dubimage">
-        <img src="assets/image 1.png" alt="">
+        <img src="static/assets/image 1.png" alt="">
     </div>
    
     <textarea class="othertextarea" name="othertext" id="eng" cols="30" rows="10">Translated Text :</textarea>
@@ -125,6 +126,6 @@
         </h5>
       </footer>
 
-      <script src="script.js"></script>
+      <script src="static/script.js"></script>
     </body>
     </html>
