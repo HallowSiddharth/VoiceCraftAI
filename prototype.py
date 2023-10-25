@@ -51,7 +51,12 @@ voice_names = {
     'tamil': 'ta-IN-ValluvarNeural',
     'kannada': 'kn-IN-GaganNeural',
     'telugu': 'te-IN-MohanNeural',
-    'hindi': 'hi-IN-MadhurNeural'
+    'hindi': 'hi-IN-MadhurNeural',
+    'bengali' : 'bn-BD-PradeepNeural',
+    'gujarati' : 'gu-IN-NiranjanNeural',
+    'malayalam' : 'ml-IN-MidhunNeural',
+    'marathi' : 'mr-IN-ManoharNeural',
+    'urdu' : 'ur-IN-SalmanNeural'
 }
 
 languages = list(voice_names.keys())  
@@ -114,37 +119,37 @@ for lang in languages:
             output_video,
         ]
     subprocess.run(ffmpeg_command)
-    with open(f'{text_directory}/{lang}.txt', 'r', encoding='utf-8') as f , open(f'{srt_directory}/{lang}.srt', 'w+', encoding='utf-8') as f1:
-        a = f.read()
-        b = a.split()
-        w = 0
-        q = '00:00:00,100 --> 00:00:03,737'
-        set = 1
-        s = ''
-        for i in b:
-            s += i + ' '
-            w += 1
-            if lang != 'hindi':
-                if w == 4:
-                    f1.write(str(set) + '\n' + q + '\n' +s + '\n')
-                    set += 1
-                    s = ''
-                    w = 0
-                    t = list(q)
-                    t[7] = str(int(t[7]) + 3)
-                    t[24] = str(int(t[24]) + 3)
-                    q = "".join(t)
-            else:
-                if w == 12:
-                    f1.write(str(set) + '\n' + q + '\n' +s + '\n')
-                    set += 1
-                    s = ''
-                    w = 0
-                    t = list(q)
-                    t[7] = str(int(t[7]) + 3)
-                    t[24] = str(int(t[24]) + 3)
-                    q = "".join(t)
-        if s:
-            f1.write(s)
-    ffmpeg_command1 = ["ffmpeg", "-i", f"video_files/{lang}_f.mp4", "-vf", f"subtitles=srt_files/{lang}.srt:force_style='FontName=Arial,FontSize=13'", "-c:a", "copy", f"{final_output}/output_{lang}.mp4"]
-    subprocess.run(ffmpeg_command1)
+    # with open(f'{text_directory}/{lang}.txt', 'r', encoding='utf-8') as f , open(f'{srt_directory}/{lang}.srt', 'w+', encoding='utf-8') as f1:
+    #     a = f.read()
+    #     b = a.split()
+    #     w = 0
+    #     q = '00:00:00,100 --> 00:00:03,737'
+    #     set = 1
+    #     s = ''
+    #     for i in b:
+    #         s += i + ' '
+    #         w += 1
+    #         if lang != 'hindi':
+    #             if w == 4:
+    #                 f1.write(str(set) + '\n' + q + '\n' +s + '\n')
+    #                 set += 1
+    #                 s = ''
+    #                 w = 0
+    #                 t = list(q)
+    #                 t[7] = str(int(t[7]) + 3)
+    #                 t[24] = str(int(t[24]) + 3)
+    #                 q = "".join(t)
+    #         else:
+    #             if w == 12:
+    #                 f1.write(str(set) + '\n' + q + '\n' +s + '\n')
+    #                 set += 1
+    #                 s = ''
+    #                 w = 0
+    #                 t = list(q)
+    #                 t[7] = str(int(t[7]) + 3)
+    #                 t[24] = str(int(t[24]) + 3)
+    #                 q = "".join(t)
+    #     if s:
+    #         f1.write(s)
+    # ffmpeg_command1 = ["ffmpeg", "-i", f"video_files/{lang}_f.mp4", "-vf", f"subtitles=srt_files/{lang}.srt:force_style='FontName=Arial,FontSize=13'", "-c:a", "copy", f"{final_output}/output_{lang}.mp4"]
+    # subprocess.run(ffmpeg_command1)
