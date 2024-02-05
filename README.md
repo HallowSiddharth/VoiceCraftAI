@@ -1,7 +1,6 @@
 Voice Craft AI - Where the essence of your voice meets the diversity of languages.
 
 
-![sih](https://github.com/HallowSiddharth/VoiceCraftAI/assets/120928306/749f2b45-d623-4049-a4dd-250313cdc4f0)
 ![VoiceCraft](https://github.com/HallowSiddharth/VoiceCraftAI/assets/120928306/8e7ac6c1-5331-4f90-8a50-4bd821b49c69)
 
 
