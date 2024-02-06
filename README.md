@@ -1,4 +1,4 @@
-Voice Craft AI - Where the essence of your voice meets the diversity of languages.
+**Voice Craft AI** - Where the essence of your voice meets the diversity of languages.
 
 
 ![VoiceCraft](https://github.com/HallowSiddharth/VoiceCraftAI/assets/120928306/8e7ac6c1-5331-4f90-8a50-4bd821b49c69)
