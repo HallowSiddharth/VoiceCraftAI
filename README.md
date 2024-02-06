@@ -11,7 +11,7 @@ https://colab.research.google.com/github/ardha27/AICoverGen-NoUI-Colab/blob/main
 **Voice Craft AI** is a cutting-edge dubbing software powered by artificial intelligence (AI), designed to seamlessly translate English audio into various Indian regional languages. Our innovative platform offers a simplified yet robust process to dub videos in multiple languages while retaining the nuances of the original speaker's voice.
 
 The Dubbing Process
-Voice Craft AI follows a systematic approach to transform English audio into regional languages with a touch of naturalness. 
+**Voice Craft AI** follows a systematic approach to transform English audio into regional languages with a touch of naturalness. 
 We follow a 8-step pipeline in order to achieve this end product.
 
 ![sih](https://github.com/HallowSiddharth/VoiceCraftAI/assets/120928306/749f2b45-d623-4049-a4dd-250313cdc4f0)
@@ -40,7 +40,7 @@ Input: Youtube video / User uploaded video
 ### Step 5: Voice Model Creation
 - We can select an already trained voice model, load a pretrained model, or train our own voice model and proceed further with the cloning process.
 - Training a Voice Model:
-- VoiceCraftAI makes it very easy for it’s users to train their own voice models using a Retrieval-Based Voice Conversion technology.
+- **Voice Craft AI** makes it very easy for it’s users to train their own voice models using a Retrieval-Based Voice Conversion technology.
 - A voice model is simply an AI model of the user’s voice, which can be used to clone their voice into existing audio clips.
 - Creating a Dataset:
 - In order to train a voice model, the user must prepare a data set consisting of roughly 10-20 minutes of the user’s voice as a “.wav” file.
@@ -79,8 +79,8 @@ Output: 20+ voice cloned and lip-synced videos in various regional languages.
 
 
 
-The End Result
-Voice Craft AI's unique pipeline takes a single video as input and transforms it into multiple output videos. These output videos are not only professionally dubbed in various Indian regional languages but also feature the speaker's own voice and are synchronized with lip movements. The addition of subtitles further enhances the user experience, making the content more accessible to a wider audience.
+## The End Result
+**Voice Craft AI**'s unique pipeline takes a single video as input and transforms it into multiple output videos. These output videos are not only professionally dubbed in various Indian regional languages but also feature the speaker's own voice and are synchronized with lip movements. The addition of subtitles further enhances the user experience, making the content more accessible to a wider audience.
 With Voice Craft AI, the power of AI is harnessed to break language barriers, making content more inclusive, engaging, and relatable to diverse audiences across India. Whether for entertainment, education, or information sharing, our solution ensures that your message is heard and understood by all.
 
 
