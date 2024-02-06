@@ -8,7 +8,7 @@
 ## Try the demo
 https://colab.research.google.com/github/ardha27/AICoverGen-NoUI-Colab/blob/main/CoverGen_No_UI.ipynb#scrollTo=B3BqnUoePVGd
 
-Voice Craft AI is a cutting-edge dubbing software powered by artificial intelligence (AI), designed to seamlessly translate English audio into various Indian regional languages. Our innovative platform offers a simplified yet robust process to dub videos in multiple languages while retaining the nuances of the original speaker's voice.
+**Voice Craft AI** is a cutting-edge dubbing software powered by artificial intelligence (AI), designed to seamlessly translate English audio into various Indian regional languages. Our innovative platform offers a simplified yet robust process to dub videos in multiple languages while retaining the nuances of the original speaker's voice.
 
 The Dubbing Process
 Voice Craft AI follows a systematic approach to transform English audio into regional languages with a touch of naturalness. 
@@ -19,25 +19,25 @@ We follow a 8-step pipeline in order to achieve this end product.
 ## Setup
 Input: Youtube video / User uploaded video 
 
-Step 1: Audio Extraction
+### Step 1: Audio Extraction
 •	The first step involves taking the user’s video content and extracting the audio from it. This serves as the foundation for the dubbing process.
 •	We do this with the help of ffmpeg and extract a “.wav” file from the user video. This is our original English audio.
 
- Step 2: Speech Transcription
+### Step 2: Speech Transcription
 •	The next step involves transcribing this audio into text with appropriate punctuations, to get the best possible text for translation.
 •	We use OpenAI’s Whisper to transcribe the speech from the extracted audio, as our research has concluded that this is the best way to transcribe our English speech.
 
-Step 3: Translation
+### Step 3: Translation
 •	In this step, we convert our English text into 20+ regional languages to get the transcription for our voice synthesis is various languages.
 •	Since the problem statement deals with non-colloquial translations, we can use Google translate to achieve this.
 
-Step 4: Voice Synthesis
+### Step 4: Voice Synthesis
 •	Our next step involves utilizing Edge-TTS, a powerful AI-based text-to-speech technology.
 •	We choose between male and female native voices to produce a synthetic voice rendition of the transcribed script in the desired regional language.
 •	While this voice may sound natural, this initial synthesis is a bit robotic in nature, so we aim to fix this problem as well to make it sound natural.
 •	We plan to clone the user’s voice in order to achieve this.
 
-Step 5: Voice Model Creation
+### Step 5: Voice Model Creation
 •	We can select an already trained voice model, load a pretrained model, or train our own voice model and proceed further with the cloning process.
 •	Training a Voice Model:
 o	VoiceCraftAI makes it very easy for it’s users to train their own voice models using a Retrieval-Based Voice Conversion technology.
@@ -53,17 +53,17 @@ o	The user can also choose to save this voice on the software, so that it is eas
 
 
 
-Step 6: Final Audio Generation
+### Step 6: Final Audio Generation
 •	Now that we have our voice model, we can proceed to clone the user’s voice over our existing edge-tts voices we generated for different languages.
 •	This will make the voices for different languages sound natural and more personal to the user, thereby making it more human.
 •	We use Retrieval-Based Voice Conversion for this step.
 
-Step 7: Video Integration and Subtitle Generation
+### Step 7: Video Integration and Subtitle Generation
 •	The next step is to integrate our audios for over 20+ regional languages with our video to form the basis of the output videos.
 •	This is done with the help of ffmpeg.
 •	We also embed subtitles in each regional languages along with their videos in order to provide more clarity for the consumers.
 
-Step 8: Lip-sync Integration
+### Step 8: Lip-sync Integration
 •	The final step is to integrate lip-syncing with the audio of each regional language, to create the final end product. 
 •	We achieve this using Wav2lip.
 •	Once this is done, the final set of videos are rendered out and neatly compiled into a “.zip” file with each language’s name in the title of that specific video.
