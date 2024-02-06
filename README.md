@@ -16,6 +16,7 @@ We follow a 8-step pipeline in order to achieve this end product.
 
 ![sih](https://github.com/HallowSiddharth/VoiceCraftAI/assets/120928306/749f2b45-d623-4049-a4dd-250313cdc4f0)
 
+## Setup!
 Input: Youtube video / User uploaded video 
 
 Step 1: Audio Extraction
