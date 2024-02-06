@@ -40,16 +40,16 @@ Input: Youtube video / User uploaded video
 ### Step 5: Voice Model Creation
 •	We can select an already trained voice model, load a pretrained model, or train our own voice model and proceed further with the cloning process.
 •	Training a Voice Model:
-o	VoiceCraftAI makes it very easy for it’s users to train their own voice models using a Retrieval-Based Voice Conversion technology.
-o	A voice model is simply an AI model of the user’s voice, which can be used to clone their voice into existing audio clips.
-o	Creating a Dataset:
-	In order to train a voice model, the user must prepare a data set consisting of roughly 10-20 minutes of the user’s voice as a “.wav” file.
-	These can be separate files with duration of 20 seconds each or one single file.
-	These files must be named “file<number>.wav”, stored into a folder and that folder must be zipped.
-	This zipped file is now the dataset which needs to be imported to VoiceCraftAI
-o	Once the dataset is created, we can import it and start creating a model. The number of epochs, the sampling rate, the batch size has already been determined with intense experimentation, so those need not be tinkered by the user.
-o	Once the model is trained, the user can download the model as a “.zip” file.
-o	The user can also choose to save this voice on the software, so that it is easier to choose the same voice for future conversions.
+•	VoiceCraftAI makes it very easy for it’s users to train their own voice models using a Retrieval-Based Voice Conversion technology.
+•	A voice model is simply an AI model of the user’s voice, which can be used to clone their voice into existing audio clips.
+•	Creating a Dataset:
+•	In order to train a voice model, the user must prepare a data set consisting of roughly 10-20 minutes of the user’s voice as a “.wav” file.
+•	These can be separate files with duration of 20 seconds each or one single file.
+•	These files must be named “file<number>.wav”, stored into a folder and that folder must be zipped.
+•	This zipped file is now the dataset which needs to be imported to VoiceCraftAI
+•	Once the dataset is created, we can import it and start creating a model. The number of epochs, the sampling rate, the batch size has already been determined with intense experimentation, so those need not be tinkered by the user.
+•	Once the model is trained, the user can download the model as a “.zip” file.
+•	The user can also choose to save this voice on the software, so that it is easier to choose the same voice for future conversions.
 
 
 
