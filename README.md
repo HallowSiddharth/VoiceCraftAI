@@ -5,7 +5,7 @@ Voice Craft AI - Where the essence of your voice meets the diversity of language
 
 
 
-## Try the demo!
+## Try the demo
 https://colab.research.google.com/github/ardha27/AICoverGen-NoUI-Colab/blob/main/CoverGen_No_UI.ipynb#scrollTo=B3BqnUoePVGd
 
 Voice Craft AI is a cutting-edge dubbing software powered by artificial intelligence (AI), designed to seamlessly translate English audio into various Indian regional languages. Our innovative platform offers a simplified yet robust process to dub videos in multiple languages while retaining the nuances of the original speaker's voice.
@@ -16,7 +16,7 @@ We follow a 8-step pipeline in order to achieve this end product.
 
 ![sih](https://github.com/HallowSiddharth/VoiceCraftAI/assets/120928306/749f2b45-d623-4049-a4dd-250313cdc4f0)
 
-## Setup!
+## Setup
 Input: Youtube video / User uploaded video 
 
 Step 1: Audio Extraction
