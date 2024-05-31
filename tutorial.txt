@@ -1,0 +1,14 @@
+Please make the following changes before using!
+
+
+Pre-requesites:
+Nvidia GPU
+Windows Users: Install the windows subsystem for linux (WSL).
+Linux Users: Make sure you have Nvidia GPU Drivers for your system.
+
+1. Clone this directory
+2. Run the setup.ipynb file (all the cells)
+3. Now open your AICoverGen folder and go to the src sub folder
+	3.1 Replace the main.py with the modifications/AICoverGen mods/main.py
+4. Enable GPU Acceleration and install Tensorflow, CUDA,etc.
+	4.1 Follow this link : https://docs.google.com/document/d/1MQ35ZeMZupJQCz4pUmI2Z0j6yD5VaVRWYBtosGNK0p8/edit?pli=1#heading=h.aczyuw2yex2w
