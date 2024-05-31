@@ -5,8 +5,25 @@
 
 
 
-## Try the demo
-https://colab.research.google.com/github/ardha27/AICoverGen-NoUI-Colab/blob/main/CoverGen_No_UI.ipynb#scrollTo=B3BqnUoePVGd
+# Trying it Yourself
+
+## Pre-requesites
+- Nvidia GPU
+- Windows Users: Install the windows subsystem for linux (WSL).
+- Linux Users: Make sure you have Nvidia GPU Drivers for your system.
+
+## Setting up VoiceCraftAI in your system
+1. Clone this directory
+2. Run the setup.ipynb file (all the cells)
+3. Now open your AICoverGen folder and go to the src sub folder
+	3.1 Replace the main.py with the modifications/AICoverGen mods/main.py
+4. Enable GPU Acceleration and install Tensorflow, CUDA,etc.
+	4.1 Follow this link : https://docs.google.com/document/d/1MQ35ZeMZupJQCz4pUmI2Z0j6yD5VaVRWYBtosGNK0p8/edit?pli=1#heading=h.aczyuw2yex2w
+5. Make sure to change the absolute path in each of the following files to your similar path:
+   	- web.py
+   	- test.py
+   	- trimming.py
+   	- voice_cloning.py
 
 **Voice Craft AI** is a cutting-edge dubbing software powered by artificial intelligence (AI), designed to seamlessly translate English audio into various Indian regional languages. Our innovative platform offers a simplified yet robust process to dub videos in multiple languages while retaining the nuances of the original speaker's voice.
 
@@ -63,7 +80,7 @@ Input: Youtube video / User uploaded video
 - This is done with the help of ffmpeg.
 - We also embed subtitles in each regional languages along with their videos in order to provide more clarity for the consumers.
 
-### Step 8: Lip-sync Integration
+### Step 8: Lip-sync Integration (Working on this feature)
 - The final step is to integrate lip-syncing with the audio of each regional language, to create the final end product.
 - We achieve this using Wav2lip.
 - Once this is done, the final set of videos are rendered out and neatly compiled into a “.zip” file with each language’s name in the title of that specific video.
