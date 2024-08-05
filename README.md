@@ -101,6 +101,8 @@ Output: 20+ voice-cloned and lip-synced videos in various regional languages.
 With **Voice Craft AI**, the power of AI is harnessed to break language barriers, making content more inclusive, engaging, and relatable to diverse audiences across India. Whether for entertainment, education, or information sharing, our solution ensures that your message is heard and understood by all.
 We're experimenting on more features actively, if you guys want to contribute, let us know.
 
+_**Innovate, Create, Inspire**_
+ 
 
 
 
