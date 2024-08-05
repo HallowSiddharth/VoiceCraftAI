@@ -87,7 +87,7 @@ Input: Youtube video / User uploaded video
 
 This marks the end of our pipeline.
 
-Output: 20+ voice cloned and lip-synced videos in various regional languages.
+Output: 20+ voice-cloned and lip-synced videos in various regional languages.
 
 
 
