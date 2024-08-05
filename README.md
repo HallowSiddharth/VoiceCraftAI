@@ -7,9 +7,9 @@
 
 # Trying it Yourself
 
-## Pre-requesites
+## Pre-requisites
 - Nvidia GPU
-- Windows Users: Install the windows subsystem for linux (WSL).
+- Windows Users: Install the windows subsystem for linu x (WSL).
 - Linux Users: Make sure you have Nvidia GPU Drivers for your system.
 
 ## Setting up VoiceCraftAI in your system
