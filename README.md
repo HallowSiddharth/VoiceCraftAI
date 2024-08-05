@@ -90,8 +90,6 @@ This marks the end of our pipeline.
 Output: 20+ voice-cloned and lip-synced videos in various regional languages.
 
 
-
-
 ## The End Result
 **Voice Craft AI**'s unique pipeline takes a single video as input and transforms it into multiple output videos. These output videos are not only professionally dubbed in various Indian regional languages but also feature the speaker's own voice and are synchronized with lip movements. The addition of subtitles further enhances the user experience, making the content more accessible to a wider audience.
 With **Voice Craft AI**, the power of AI is harnessed to break language barriers, making content more inclusive, engaging, and relatable to diverse audiences across India. Whether for entertainment, education, or information sharing, our solution ensures that your message is heard and understood by all.
