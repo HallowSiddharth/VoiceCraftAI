@@ -69,7 +69,6 @@ Input: Youtube video / User uploaded video
 - The user can also choose to save this voice on the software, so that it is easier to choose the same voice for future conversions.
 
 
-
 ### Step 6: Final Audio Generation
 - Now that we have our voice model, we can proceed to clone the user’s voice over our existing edge-tts voices we generated for different languages
 - This will make the voices for different languages sound natural and more personal to the user, thereby making it more human.
