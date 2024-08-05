@@ -1,6 +1,5 @@
 Please make the following changes before using!
 
-
 Pre-requesites:
 Nvidia GPU
 Windows Users: Install the windows subsystem for linux (WSL).
